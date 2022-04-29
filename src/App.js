@@ -1,24 +1,89 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from "react";
+import Navbar from "./components/Navbar/Navbar";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Sidebar from "./components/Sidebar";
+import { DarkTheme, LightTheme, GlobalStyle } from "./components/GlobalStyles";
+import { ThemeProvider } from "styled-components";
+import "./index.css";
+import TodoApp from "./Pages/TodoApp";
+import Funny from "./Pages/Funny";
+import Hentai from "./Pages/Hentai";
 
 function App() {
+  const [hideSideNavs, setHideSideNavs] = useState(false);
+  const [theme, setTheme] = useState("light");
+  const [themeIcons, setThemeIcons] = useState(true);
+  const [sideNavTheme, setSideNavTheme] = useState(false);
+  const [themetext, setThemeText] = useState("Light Mode");
+
+  const themeToggler = () => {
+    if (theme === "light") {
+      // const currentTheme =
+      setTheme("dark");
+      setThemeIcons(false);
+      setSideNavTheme(true);
+      setThemeText("Dark mode ");
+    } else {
+      setTheme("light");
+      setThemeIcons(true);
+      setSideNavTheme(false);
+      setThemeText("Light Mode ");
+    }
+  };
+
+  const showSideNav = () => {
+    setHideSideNavs(!hideSideNavs);
+  };
+
+  useEffect(() => {
+    setThemeIcons(themeIcons);
+    setThemeText(themetext);
+    setSideNavTheme(sideNavTheme);
+  }, [sideNavTheme]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <ThemeProvider theme={theme === "light" ? LightTheme : DarkTheme}>
+        <Router>
+          <GlobalStyle />
+          <Navbar
+            showSideNav={showSideNav}
+            themeToggler={themeToggler}
+            themeIcons={themeIcons}
+            themetext={themetext}
+            theme={theme}
+          />
+          <Sidebar
+            show={hideSideNavs}
+            showSideNav={showSideNav}
+            themeToggler={themeToggler}
+            theme={theme}
+            sideNavTheme={sideNavTheme}
+          />
+
+          <Switch>
+            <Route
+              path="/projects/todo-app"
+              component={TodoApp}
+              themeToggler={themeToggler}
+              theme={theme}
+            />
+            <Route
+              path="/hentai"
+              exact={false}
+              render={(props) => <Hentai {...props} theme={theme} />}
+              themeToggler={themeToggler}
+            />
+            <Route
+              path="/funny"
+              exact={false}
+              render={(props) => <Funny {...props} theme={theme} />}
+              themeToggler={themeToggler}
+            />
+          </Switch>
+        </Router>
+      </ThemeProvider>
+    </>
   );
 }
 

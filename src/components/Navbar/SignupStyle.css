@@ -1,0 +1,104 @@
+* {
+    font-family: 'Rubick', sans-serif;
+}
+
+:root {
+    --body-color: #DCDCDC;
+    --font-color: black;
+    --border-color: #696969;
+
+}
+
+[data-theme='dark'] {
+    --body-color: #808080;
+    --font-color: white;
+    --border-color: #696969;
+}
+
+/* modal close */
+.modal-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.modal-header .modal-header-close {
+    height: 40px;
+    min-height: 40px;
+    max-height: 40px;
+    width: 40px;
+    min-width: 40px;
+    max-width: 40px;
+    margin: 4px 8px;
+    color: var(--font-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.modal-header .modal-header-title {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 48px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color: var(--font-color);
+    min-height: 48px;
+    width: 100%;
+}
+
+/* Sign up container */
+.Signup-container {
+    animation: fadeIn 700ms;
+    background-color: var(--body-color);
+    position: absolute;
+    padding: 5px;
+    transition: ease-in-out 500ms;
+    transform: translate(-500px, 115px);
+    width: 240px;
+    height: 350px;
+    box-shadow: 0 0 1.4px 0.7px;
+}
+
+/* .login-background {
+    background-color: rgba(0, 0, 0, 0.863);
+    width: 100%;
+    height: 100%;
+}
+
+.login-background.active {
+    display: block;
+} */
+
+.signup-form-container {
+    padding: 5px 10px;
+}
+
+.signup-form {
+    margin-bottom: 5px;
+}
+
+.signup-form span.signup-form-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.signup-form input {
+    padding: 5px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

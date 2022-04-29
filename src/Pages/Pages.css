@@ -1,0 +1,143 @@
+:root {
+    --body-color: white;
+    --font-color: black;
+}
+
+[data-theme='dark'] {
+    --body-color: black;
+    --font-color: white;
+}
+
+.lightTheme {
+    --body-color: white;
+    --font-color: black;
+}
+
+.pages-container {
+    position: absolute;
+    display: flex;
+    padding: 50px;
+    width: 100%;
+    top: 100px;
+    height: 800px;
+    justify-content: center;
+
+}
+
+.funny,
+.hentai {
+    display: flex;
+    position: absolute;
+    align-items: center;
+    flex-direction: column;
+    height: fit-content;
+    width: 50%;
+    top: 100px;
+    padding: 20px;
+    margin: 20px auto;
+    background-color: var(--body-color);
+}
+
+li.list-items {
+    list-style: none;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+
+}
+
+.list-items img {
+    position: relative;
+    height: 500px;
+    width: 80%;
+
+}
+
+.sectionLabel {
+    position: relative;
+    width: 90%;
+    text-align: start;
+}
+
+.sectionLabel img {
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+}
+
+.sectionLabel span {
+    font-size: 30px;
+    color: var(--font-color);
+}
+
+.sectionImage {
+    position: relative;
+    display: block;
+    margin-top: 20px;
+    width: 100%;
+    height: 600px;
+
+
+}
+
+.sectionUpandDownVote {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    background-color: gray;
+    margin-top: 10px;
+    padding: 0 10px;
+    align-items: center;
+    display: flex;
+    justify-content: flex-start;
+    padding: 0;
+}
+
+.likeDislikeContainer {
+    display: flex;
+    font-size: 1.5rem;
+    justify-content: space-around;
+    margin: 0;
+    flex-direction: row;
+    width: 30%;
+    height: 100%;
+    align-items: center;
+    transition: ease-in 1s;
+}
+
+.likeDislikeContainer svg {
+    width: 30px;
+    height: 1.8rem;
+    font-size: 1.5rem;
+    padding: 7px 0;
+    transition: linear 0.8s;
+}
+
+.likeDislikeContainer svg:hover {
+    background-color: #808080;
+    border-radius: 30%;
+    color: #e6e600;
+}
+
+.likeDislikeContainer svg.active {
+    color: #e6e600;
+}
+
+@media screen and(max-width: 800px) {
+
+    .funny,
+    .hentai {
+        width: 100%;
+        height: 100%;
+    }
+
+    .sectionImage {
+        height: 60%;
+        width: 60%;
+    }
+
+    .list-items {
+        height: 60%;
+        width: 60%;
+    }
+}

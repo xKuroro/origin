@@ -1,0 +1,66 @@
+* {
+    padding: 0;
+    margin: 0;
+    left: 0;
+    right: 0;
+}
+
+:root {
+    --body-color: #DCDCDC;
+    --font-color: black;
+    --border-color: #696969;
+
+}
+
+[data-theme='dark'] {
+    --body-color: #808080;
+    --font-color: white;
+    --border-color: #696969;
+}
+
+.topbar-menu {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    justify-content: space-between;
+
+}
+
+.topbar-menu li {
+    display: flex;
+    padding: 3px 5px;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px 0;
+    transition: all 1s;
+
+
+}
+
+.topbar-menu li span {
+    font-size: 1.2rem;
+    align-items: center;
+}
+
+.topbar-menu li svg {
+    font-size: 1.4rem;
+}
+
+.topbar-menu li svg:hover {
+    font-size: 1.3rem;
+}
+
+@media screen and (max-width: 1280px) {
+    .topbar-menu {
+        width: max-content;
+        height: max-content;
+        transform: scalex(1.2);
+    }
+
+    .topbar-menu li {
+        width: max-content;
+
+    }
+}
