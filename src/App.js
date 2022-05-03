@@ -15,6 +15,7 @@ function App() {
   const [themeIcons, setThemeIcons] = useState(true);
   const [sideNavTheme, setSideNavTheme] = useState(false);
   const [themetext, setThemeText] = useState("Light Mode");
+  const [isToggle, setIsToggle] = useState(false);
 
   const themeToggler = () => {
     if (theme === "light") {
@@ -22,12 +23,14 @@ function App() {
       setTheme("dark");
       setThemeIcons(false);
       setSideNavTheme(true);
+      setIsToggle(true);
       setThemeText("Dark mode ");
     } else {
       setTheme("light");
       setThemeIcons(true);
       setSideNavTheme(false);
       setThemeText("Light Mode ");
+      setIsToggle(false);
     }
   };
 
@@ -38,7 +41,9 @@ function App() {
   useEffect(() => {
     setThemeIcons(themeIcons);
     setThemeText(themetext);
+    setIsToggle(isToggle);
     setSideNavTheme(sideNavTheme);
+    setHideSideNavs(hideSideNavs);
   }, [sideNavTheme]);
 
   return (
@@ -52,6 +57,7 @@ function App() {
             themeIcons={themeIcons}
             themetext={themetext}
             theme={theme}
+            isToggle={isToggle}
           />
           <Sidebar
             show={hideSideNavs}

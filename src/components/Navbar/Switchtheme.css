@@ -1,0 +1,71 @@
+* {
+    padding: 0;
+    margin: 0;
+    top: 0;
+}
+
+:root {
+    --body-color: #dad5ca;
+    --ball-color: white;
+    --border-color: #696969;
+
+
+}
+
+
+
+.Switch-label {
+    width: 48px;
+    height: 20px;
+    position: relative;
+    display: inline-block;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.Switch-label input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.Slider {
+    position: absolute;
+    cursor: pointer;
+    margin: 0;
+    top: 0;
+    width: auto;
+    left: 0;
+    border-radius: 20px;
+    right: 0;
+    bottom: 0;
+    transition: ease 500ms;
+    background-color: #dcd3ca;
+}
+
+.Slider:before {
+    position: absolute;
+    content: '';
+    width: 17px;
+    height: 16px;
+    left: 4px;
+    transition: ease 500ms;
+    top: 2px;
+    bottom: 2px;
+    border-radius: 19px;
+    background-color: gray;
+}
+
+input:checked+.Slider:before {
+    background-color: white;
+    transform: translateX(22px);
+}
+
+input:checked+.Slider {
+    background: #0077ff;
+    background-color: #07f;
+
+}
