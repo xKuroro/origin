@@ -1,19 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FaMoon, FaSun } from "react-icons/fa";
 import "./Navbar.css";
-const ArrowContentsItem = ({ themetext, themeIcons, themeToggler }) => {
+import SwitchTheme from "./SwitchTheme";
+const ArrowContentsItem = ({ themetext, themeToggler, isToggle }) => {
   console.log(themetext);
   return (
     <>
-      <div>
+      <div className="topbar-container">
         <ul className="topbar-menu">
           <li>
             <span>{themetext}</span>
-            {!themeIcons ? (
+            <SwitchTheme
+              themetext={themetext}
+              themeToggler={themeToggler}
+              isToggle={isToggle}
+            />
+            {/* {!themeIcons ? (
               <FaSun onClick={() => themeToggler()} themetext={themetext} />
             ) : (
               <FaMoon onClick={() => themeToggler()} themetext={themetext} />
-            )}
+            )} */}
           </li>
           <li>
             <span>Sign up or Log in</span>

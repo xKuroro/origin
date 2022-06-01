@@ -23,6 +23,7 @@ export const Nav = styled.nav`
 `;
 export const NavbarContainer = styled(Container)`
   display: flex;
+  position: relative;
   justify-content: space-between;
   align-items: center;
 
@@ -135,18 +136,18 @@ export const Loginlink = styled(Link)`
 
 export const ArrowContents = styled.div`
   position: absolute;
-  height: 200px;
+  height: 300px;
   background-color: ${(props) => props.theme.bgColor};
   color: ${(props) => props.theme.fontColor};
-  top: 48px;
-  right: -120px;
+  top: 50px;
+  left: -100px;
   list-style-type: none;
   border: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0px 0px 4px rgb(0 0 0 / 20%), 0px 0px 2px rgb(0 0 0 / 10%);
   border-radius: 8px;
   display: flex;
   flex-direction: column;
-  width: 200px;
+  width: 270px;
   padding: 8px 0px;
   transition: transform linear 400ms;
 
@@ -155,15 +156,15 @@ export const ArrowContents = styled.div`
     height: 200px;
   }
 `;
+
 export const MobileIcon = styled.div`
   display: none;
 
   @media screen and (max-width: 960px) {
     display: block;
-    position: absolute;
     top: 0;
     right: 0;
-    transform: translate(-100%, 60%);
+    transform: translate(1%, 6%);
     font-size: 1.8rem;
     cursor: pointer;
     color: ${(props) => props.theme.fontColor};

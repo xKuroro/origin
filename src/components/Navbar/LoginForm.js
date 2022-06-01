@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { FaTimes, FaChrome, FaFacebook, FaTwitter } from "react-icons/fa";
 import { BsFacebook } from "react-icons/bs";
 import "./Signin.css";
-const LoginForm = ({ theme, toggleForm, showForm }) => {
+const LoginForm = ({ theme, toggleForm, showForm, bodyDimmer }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [backgroundColor, setBackgroundColor] = useState(null);
@@ -10,12 +10,17 @@ const LoginForm = ({ theme, toggleForm, showForm }) => {
   const onsubmit = (event) => {
     event.preventDefault();
   };
-
+  const body = document.body;
+  // const styleBody = body.style.backgroundColor
   useEffect(() => {
     console.log("render");
+
+    return () => {
+      console.log("out");
+    };
   }, []);
   return (
-    <div className={showForm ? "login-background active" : "login-background"}>
+    <div className="Overlay-background">
       <div className="Signin-container" data-theme={theme}>
         <div className="modal-header">
           <div className="modal-header-close">

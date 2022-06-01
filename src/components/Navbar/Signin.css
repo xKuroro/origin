@@ -100,25 +100,22 @@
 }
 
 /* background active */
-/* .login-background {
-    position: absolute;
-    width: 100vh;
-    height: 100vh;
-    top: 0;
-    transition: linear 1s;
+.Overlay-background {
+    position: fixed;
     left: 0;
-    bottom: 0;
     right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
     background-color: rgba(0, 0, 0, 0.863);
-    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 13;
+    box-sizing: border-box;
 }
 
-.login-background.active {
-    display: block;
-    top: 0;
-
-
-} */
 
 /* Main form */
 .Signin-container>form {
@@ -134,12 +131,11 @@
 .Signin-container {
     animation: fadeIn 500ms;
     background-color: var(--body-color);
-    position: absolute;
     padding: 5px;
-    transform: translate(-500px, 115px);
     width: 240px;
     height: 350px;
     box-shadow: 0 0 1.4px 0.7px;
+    z-index: 200;
 }
 
 /* input form */

@@ -22,11 +22,14 @@ import {
   Loginlink,
 } from "./Navbar.elements";
 import { IoMdNotifications } from "react-icons/io";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { IconContext } from "react-icons/lib";
 import LoginForm from "./LoginForm";
 import ArrowContentsItem from "./ArrowContentsItem";
 import SigninUser from "./SigninUser";
+import SwitchTheme from "./SwitchTheme";
+import { ReactDimmer } from "react-dimmer";
+import "./Navbody.css";
 
 const Navbar = ({
   showSideNav,
@@ -34,19 +37,21 @@ const Navbar = ({
   themeIcons,
   themetext,
   theme,
+  isToggle,
 }) => {
   const [click, setClick] = useState(false);
   const [showForm, setShowForm] = useState(false);
   const [showSigninForm, setShowSigninForm] = useState(false);
   const [secondNav, setSecondNav] = useState(false);
+  const [bodyDimmer, setBodyDimmer] = useState(null);
 
   const handleClick = () => {
     setClick(!click);
   };
   // login form
   const toggleForm = () => {
-    console.log("show Form");
     setShowForm(true);
+    setBodyDimmer("active");
     setSecondNav(false);
     setShowSigninForm(false);
   };
@@ -59,6 +64,7 @@ const Navbar = ({
   };
   return (
     <>
+      {/* <div className={`Body-dimmer ${showForm ? "active" : ""}`}> */}
       <IconContext.Provider value={{ color: (props) => props.theme.color }}>
         <Nav>
           <FaAngleDoubleRight
@@ -90,6 +96,8 @@ const Navbar = ({
                   theme={theme}
                   toggleForm={() => setShowForm(false)}
                   showForm={showForm}
+                  show
+                  bodyDimmer={bodyDimmer}
                 />
               )}
               {showSigninForm && (
@@ -100,6 +108,7 @@ const Navbar = ({
                     setShowForm(false);
                     setSecondNav(false);
                   }}
+                  signinStyle={showSigninForm}
                 />
               )}
               <ListIcons>
@@ -114,21 +123,39 @@ const Navbar = ({
                       themetext={themetext}
                       themeIcons={themeIcons}
                       themeToggler={themeToggler}
+                      isToggle={isToggle}
                     />
                   </ArrowContents>
                 )}
               </ListIcons>
+
+              <MobileIcon onClick={handleClick}>
+                {click ? (
+                  <FaTimes
+                    style={{ color: (props) => props.theme.fontColor }}
+                  />
+                ) : (
+                  <FaBars />
+                )}
+              </MobileIcon>
             </SecondNav>
-            <MobileIcon onClick={handleClick}>
-              {click ? (
-                <FaTimes style={{ color: (props) => props.theme.fontColor }} />
-              ) : (
-                <FaBars />
-              )}
-            </MobileIcon>
           </NavbarContainer>
         </Nav>
       </IconContext.Provider>
+
+      {/* <ReactDimmer
+        isOpen={showForm}
+        exitDimmer={setShowForm}
+        zIndex={20}
+        blur={1.5}
+      />
+      <ReactDimmer
+        isOpen={showSigninForm}
+        exitDimmer={setShowSigninForm}
+        zIndex={20}
+        blur={1.5}
+      /> */}
+      {/* </div> */}
     </>
   );
 };

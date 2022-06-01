@@ -5,6 +5,7 @@ import { SidenavData } from "./SidenavData";
 import { Link } from "react-router-dom";
 import gabe from "../Images/gabe.jpg";
 import { IconContext } from "react-icons/lib";
+
 // import Subnav from './Subnav'
 
 const Sidebar = ({ show, showSideNav, theme }) => {
@@ -16,10 +17,9 @@ const Sidebar = ({ show, showSideNav, theme }) => {
   const profileName = "Jelly Ace";
 
   useEffect(() => {
-    console.log("side bar");
-    return () => {
-      console.log("out");
-    };
+    if (theme) {
+      setThemeToggle(theme);
+    }
   }, [themeToggle]);
   return (
     <>
