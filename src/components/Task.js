@@ -1,4 +1,6 @@
+import React from "react";
 import { FaTimes, FaEdit } from "react-icons/fa";
+
 const Task = ({ task, onDelete, onToggle, onEdit }) => {
   return (
     <div

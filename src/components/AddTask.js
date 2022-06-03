@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 const AddTask = ({ onAdd, edit, editedValue, onClick }) => {
   const [id, setId] = useState("");
   const [text, setText] = useState("");
@@ -11,7 +11,7 @@ const AddTask = ({ onAdd, edit, editedValue, onClick }) => {
     if (!text || !day) {
       alert("Input some text.");
       return;
-    } else if ((edit = true)) {
+    } else if (edit == true) {
       onClick({ id, text, day, reminder, onEdit });
     } else {
       onAdd({ text, day, reminder });

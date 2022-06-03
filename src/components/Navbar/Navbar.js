@@ -22,13 +22,14 @@ import {
   Loginlink,
 } from "./Navbar.elements";
 import { IoMdNotifications } from "react-icons/io";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { IconContext } from "react-icons/lib";
 import LoginForm from "./LoginForm";
 import ArrowContentsItem from "./ArrowContentsItem";
 import SigninUser from "./SigninUser";
 import SwitchTheme from "./SwitchTheme";
 import { ReactDimmer } from "react-dimmer";
+import MobileiconsItems from "./MobileiconsItems";
 import "./Navbody.css";
 
 const Navbar = ({
@@ -44,9 +45,10 @@ const Navbar = ({
   const [showSigninForm, setShowSigninForm] = useState(false);
   const [secondNav, setSecondNav] = useState(false);
   const [bodyDimmer, setBodyDimmer] = useState(null);
+  const [showMobileItems, setShowMobileItems] = useState(false);
 
   const handleClick = () => {
-    setClick(!click);
+    setClick((prevclick) => !prevclick);
   };
   // login form
   const toggleForm = () => {
@@ -62,6 +64,10 @@ const Navbar = ({
     setShowForm(false);
     setShowSigninForm(false);
   };
+  const showMobile = () => {
+    setShowMobileItems((prev) => !prev);
+  };
+
   return (
     <>
       {/* <div className={`Body-dimmer ${showForm ? "active" : ""}`}> */}
@@ -129,15 +135,12 @@ const Navbar = ({
                 )}
               </ListIcons>
 
-              <MobileIcon onClick={handleClick}>
-                {click ? (
-                  <FaTimes
-                    style={{ color: (props) => props.theme.fontColor }}
-                  />
-                ) : (
-                  <FaBars />
-                )}
+              <MobileIcon>
+                <FaBars onClick={showMobile} />
               </MobileIcon>
+              {showMobileItems ? (
+                <MobileiconsItems showMobile={showMobile} />
+              ) : null}
             </SecondNav>
           </NavbarContainer>
         </Nav>

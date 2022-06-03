@@ -43,6 +43,12 @@ export const SidenavData = [
         path: "/projects/tiktok-toe",
         cName: "nav-text",
       },
+      {
+        title: "Number guessing",
+        id: uuid(),
+        path: "/projects/number_Guessing_game",
+        cName: "nav-text",
+      },
     ],
   },
 ];
